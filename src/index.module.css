@@ -3,4 +3,8 @@ body {
   background-image: linear-gradient(to right, #1c87c9, #8ebf42);
   font-family: "IBM Plex Sans KR", sans-serif;
   font-weight: bold;
+  color:rgb(36, 100, 36);
+  font-size: large;
 }
+
+

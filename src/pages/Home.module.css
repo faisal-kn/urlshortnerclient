@@ -1,0 +1,33 @@
+.container {
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.container a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1rem;
+  margin: 1.1rem;
+  border: 1px solid rgb(99, 99, 158);
+  border-radius: 0 0 15px 0;
+  transition: all 0.3s ease-in;
+}
+
+a:hover {
+  background-color: rgb(100, 108, 212);
+  border-radius: 15px;
+  margin-top: 1.2rem;
+}
+
+p {
+  margin-top: 2rem;
+}
+
+.cont {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow-y:hidden;
+}
