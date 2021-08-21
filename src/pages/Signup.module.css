@@ -1,0 +1,44 @@
+.container {
+  margin: auto;
+  text-align: center;
+  height: 70vh;
+  margin-top: 5rem;
+  max-width: 500px;
+  border: 5px ridge rgb(99, 99, 158);
+  transition: all 0.3s ease-in;
+}
+
+.form {
+  display: flex;
+  height: 70vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form input {
+  width: 70%;
+  outline: none;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 1rem;
+  margin-left: 12%;
+  margin-top: 0;
+  text-align: center;
+  transition: all 0.3s ease-in;
+  font-weight: bold;
+  color: rgb(214, 82, 20);
+}
+
+/* form input:hover {
+  background-color: rgb(122, 128, 214);
+  margin-top: 1rem;
+} */
+
+.link {
+  text-decoration: none;
+  transition:all 0.3s ease-in;
+}
+
+.link:hover{
+    text-decoration:underline;
+}

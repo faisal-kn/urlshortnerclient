@@ -14,7 +14,7 @@
   transition: all 0.3s ease-in;
 }
 
-a:hover {
+.container a:hover {
   background-color: rgb(100, 108, 212);
   border-radius: 15px;
   margin-top: 1.2rem;
