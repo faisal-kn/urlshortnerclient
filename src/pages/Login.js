@@ -10,11 +10,18 @@ const Login = () => {
         <label htmlFor="name">Name</label>
         <input type="text" id="name" placeholder="    Akshay" />
         <label htmlFor="useremail">Email</label>
-        <input type="email" id="useremail" placeholder="      name@example.com" />
+        <input
+          type="email"
+          id="useremail"
+          placeholder="      name@example.com"
+        />
         <label htmlFor="pass">Password</label>
         <input type="password" id="pass" />
         <label htmlFor="confirm">Confirm Password</label>
         <input type="password" id="confirm"></input>
+        <button type="submit" className={classes.btn}>
+          Submit
+        </button>
       </form>
     </div>
   );

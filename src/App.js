@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import UrlForm from "./pages/UrlForm";
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
       </Route>
       <Route path="/signup">
         <Signup />
+      </Route>
+      <Route path="/check">
+        <UrlForm />
       </Route>
     </>
   );
