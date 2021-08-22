@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.container a {
+.small {
   display: inline-block;
   text-decoration: none;
   padding: 0.8rem;
@@ -14,7 +14,7 @@
   transition: all 0.3s ease-in;
 }
 
-.container a:hover {
+.small:hover {
   background-color: rgb(100, 108, 212);
   border-radius: 45px;
   margin-top: 1.2rem;
@@ -27,7 +27,86 @@ p {
 .cont {
   display: flex;
   height: 80vh;
+  margin: auto;
   flex-direction: column;
   justify-content: space-evenly;
-  overflow-y:hidden;
+  overflow-y: hidden;
+  align-items: center;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.8rem 5rem;
+  margin: 1.1rem;
+  border: 3px solid rgb(99, 99, 158);
+  border-radius: 0 0 15px 0;
+  transition: all 0.3s ease-in;
+}
+
+.link:hover {
+  background-color: rgb(100, 108, 212);
+  border-radius: 45px;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  margin: 0px 50px;
+  text-decoration: none;
+  border: 3px solid yellow;
+  color: transparent;
+  padding: 10px 10px;
+  font-size: 28px;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  position: relative;
+}
+.btn:before {
+  content: "Logout";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 100%;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(0) rotatey(0);
+  opacity: 0;
+}
+.btn:hover:before {
+  transform: scale(1) rotatey(360deg);
+  left: 0;
+  opacity: 1;
+}
+.btn:after {
+  content: "Logout";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(1) rotatey(0);
+  opacity: 1;
+}
+.btn:hover:after {
+  transform: scale(0) rotatey(360deg);
+  left: -100%;
+  opacity: 0;
 }

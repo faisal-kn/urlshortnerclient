@@ -4,10 +4,15 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import UrlForm from "./pages/UrlForm";
+import AuthContext from "./context/auth-context";
 
 const App = () => {
   return (
-    <>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: true,
+      }}
+    >
       <Route path="/" exact>
         <Redirect to="/home"></Redirect>
       </Route>
@@ -20,10 +25,10 @@ const App = () => {
       <Route path="/signup">
         <Signup />
       </Route>
-      <Route path="/check">
+      <Route path="/short">
         <UrlForm />
       </Route>
-    </>
+    </AuthContext.Provider>
   );
 };
 
