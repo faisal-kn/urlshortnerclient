@@ -23,9 +23,11 @@
   margin: 1rem;
   margin-left: 12%;
   margin-top: 0;
+  border-color: rgb(230, 230, 70);
   text-align: center;
+  font-weight: bold;
   transition: all 0.3s ease-in;
-  color: aquamarine;
+  color: rgb(219, 123, 33);
 }
 
 .form input:hover {
