@@ -83,7 +83,7 @@ const Signup = (props) => {
         </button>
       </form>
       {redirect && (
-        <Route path="/login" exact>
+        <Route path="/signup" exact>
           <Redirect to="/short"></Redirect>
         </Route>
       )}
