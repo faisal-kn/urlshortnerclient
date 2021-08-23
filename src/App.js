@@ -7,17 +7,22 @@ import UrlForm from "./pages/UrlForm";
 import AuthContext from "./context/auth-context";
 
 const App = () => {
-  let tokenUsed = "";
+  const [bearerToken, setToken] = React.useState("");
+  const [logState, setLogState] = React.useState(false);
+
   const tokencreater = (token) => {
-    tokenUsed = token;
-    console.log(token);
+    setToken(token);
+  };
+
+  const logHandler = (state) => {
+    setLogState(state);
   };
 
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn: false,
-        token: tokenUsed,
+        isLoggedIn: logState,
+        token: bearerToken,
       }}
     >
       <Route path="/" exact>
@@ -30,7 +35,7 @@ const App = () => {
         <Login />
       </Route>
       <Route path="/signup">
-        <Signup tokenHandler={tokencreater} />
+        <Signup tokenHandler={tokencreater} logStateHandler={logHandler} />
       </Route>
       <Route path="/short">
         <UrlForm />

@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import classes from "./Login.module.css";
 import { Route, Redirect } from "react-router-dom";
-import UrlForm from "./UrlForm";
 
 const Signup = (props) => {
   console.log(props);
@@ -41,6 +40,7 @@ const Signup = (props) => {
     console.log(res.data);
     if (res.data.status === "success") {
       props.tokenHandler(res.data.token);
+      props.logStateHandler(true);
       setRedirect(true);
     }
   };
