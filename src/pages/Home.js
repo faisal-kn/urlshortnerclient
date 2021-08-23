@@ -8,12 +8,12 @@ const Home = () => {
   return (
     <div className={classes.container}>
       {!ctx.isLoggedIn && (
-        <NavLink to="/login" className={classes.small}>
+        <NavLink to="/signup" className={classes.small}>
           Sign Up
         </NavLink>
       )}
       {!ctx.isLoggedIn && (
-        <NavLink to="/signup" className={classes.small}>
+        <NavLink to="/login" className={classes.small}>
           Log In
         </NavLink>
       )}

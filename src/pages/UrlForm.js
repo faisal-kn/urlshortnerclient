@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
 import classes from "./UrlForm.module.css";
+import AuthContext from "../context/auth-context";
 
 const UrlForm = () => {
   const [fullUrl, setFullUrl] = React.useState("");
   const [shortUrl, setShortUrl] = React.useState("");
+  const ctx = React.useContext(AuthContext);
 
   const fullurlChangeHandler = (e) => {
     setFullUrl(e.target.value);
@@ -16,10 +18,13 @@ const UrlForm = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
+    console.log(ctx.token);
     const options = {
       url: "http://127.0.0.1:3001/api/v2/shorturl",
       method: "POST",
+      headers: {
+        Authorization: `Bearer ${ctx.token}}`,
+      },
       data: {
         fullUrl,
       },
