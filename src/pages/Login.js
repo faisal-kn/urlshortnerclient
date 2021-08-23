@@ -22,6 +22,7 @@ const Login = () => {
   const passCheckChangeHandler = (e) => {
     setConfirmPassword(e.target.value);
   };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const options = {
@@ -49,7 +50,7 @@ const Login = () => {
         <input
           type="text"
           id="name"
-          placeholder="    Akshay"
+          placeholder="Akshay"
           onChange={nameChangeHandler}
           value={name}
         />
@@ -57,7 +58,7 @@ const Login = () => {
         <input
           type="email"
           id="useremail"
-          placeholder="      name@example.com"
+          placeholder="name@example.com"
           onChange={emailChangeHandler}
           value={email}
         />
@@ -80,7 +81,7 @@ const Login = () => {
       </form>
       {redirect && (
         <Route path="/login" exact>
-          <Redirect to="/check"></Redirect>
+          <Redirect to="/short"></Redirect>
         </Route>
       )}
     </div>

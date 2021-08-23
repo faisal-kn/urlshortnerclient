@@ -10,7 +10,7 @@ const App = () => {
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn: true,
+        isLoggedIn: false,
       }}
     >
       <Route path="/" exact>
