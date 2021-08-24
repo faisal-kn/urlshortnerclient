@@ -32,7 +32,7 @@ const App = () => {
         <Home />
       </Route>
       <Route path="/login">
-        <Login />
+        <Login tokenHandler={tokencreater} logStateHandler={logHandler} />
       </Route>
       <Route path="/signup">
         <Signup tokenHandler={tokencreater} logStateHandler={logHandler} />
