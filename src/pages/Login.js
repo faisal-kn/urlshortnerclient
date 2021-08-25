@@ -21,6 +21,7 @@ const Login = (props) => {
     const options = {
       url: "http://127.0.0.1:3001/api/v2/users/login",
       method: "POST",
+      withCredentials: true,
       data: {
         email,
         password,

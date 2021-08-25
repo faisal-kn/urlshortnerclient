@@ -29,7 +29,7 @@ const App = () => {
         <Redirect to="/home"></Redirect>
       </Route>
       <Route path="/home">
-        <Home />
+        <Home logStateHandler={logHandler}/>
       </Route>
       <Route path="/login">
         <Login tokenHandler={tokencreater} logStateHandler={logHandler} />

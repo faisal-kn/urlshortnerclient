@@ -23,9 +23,7 @@ const UrlForm = () => {
     const options = {
       url: "http://127.0.0.1:3001/api/v2/shorturl",
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${ctx.token}`,
-      },
+      withCredentials: true,
       data: {
         fullUrl,
       },
@@ -34,6 +32,8 @@ const UrlForm = () => {
     const res = await axios(options);
     console.log(res.data);
     if (res.data.status === "success") {
+      setFullUrl(res.data.data.url.fullUrl);
+      setShortUrl(res.data.data.url.shortUrl);
       setShowLink(true);
     }
   };
@@ -63,10 +63,10 @@ const UrlForm = () => {
       {showLink && (
         <div>
           <p>Here is your short Url</p>
-          <NavLink to={shortUrl} className={classes.small}>
+          <NavLink to={`https://bitly.com/`} className={classes.small}>
             {shortUrl}
           </NavLink>
-          <Route path={shortUrl}>
+          <Route path={`https://bitly.com/`}>
             <Redirect to={fullUrl}></Redirect>
           </Route>
         </div>

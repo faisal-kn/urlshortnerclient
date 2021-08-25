@@ -3,8 +3,12 @@ import { NavLink } from "react-router-dom";
 import classes from "./Home.module.css";
 import AuthContext from "../context/auth-context";
 
-const Home = () => {
+const Home = (props) => {
   const ctx = React.useContext(AuthContext);
+
+  const logoutHandler = () => {
+  };
+
   return (
     <div className={classes.container}>
       {!ctx.isLoggedIn && (
@@ -17,7 +21,11 @@ const Home = () => {
           Log In
         </NavLink>
       )}
-      {ctx.isLoggedIn && <button className={classes.btn}>Logout</button>}
+      {ctx.isLoggedIn && (
+        <button className={classes.btn} onClick={logoutHandler}>
+          Logout
+        </button>
+      )}
       <div className={classes.cont}>
         <p>Welcome to url-shortner</p>
         {ctx.isLoggedIn && (

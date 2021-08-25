@@ -29,6 +29,7 @@ const Signup = (props) => {
     const options = {
       url: "http://127.0.0.1:3001/api/v2/users/signup",
       method: "POST",
+      withCredentials: true,
       data: {
         name,
         email,
@@ -37,7 +38,6 @@ const Signup = (props) => {
       },
     };
     const res = await axios(options);
-    console.log(res.data);
     if (res.data.status === "success") {
       props.tokenHandler(res.data.token);
       props.logStateHandler(true);
