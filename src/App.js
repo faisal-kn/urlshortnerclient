@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import UrlForm from "./pages/UrlForm";
 import AuthContext from "./context/auth-context";
+import Direct from './direct';
 
 const App = () => {
   const [logState, setLogState] = React.useState(false);
@@ -23,27 +24,27 @@ const App = () => {
         <Route path="/" exact>
           <Redirect to="/home"></Redirect>
         </Route>
-        <Route path="/home">
+        <Route path="/home" exact>
           <Home logStateHandler={logHandler} />
         </Route>
-        <Route path="/login">
+        <Route path="/login" exact>
           <Login logStateHandler={logHandler} />
         </Route>
-        <Route path="/signup">
+        <Route path="/signup"exact>
           <Signup logStateHandler={logHandler} />
         </Route>
         {logState && (
-          <Route path="/short">
+          <Route path="/short" exact>
             <UrlForm />
           </Route>
         )}
         {!logState && (
-          <Route path="/short">
+          <Route path="/short" exact>
             <Login logStateHandler={logHandler} />
           </Route>
         )}
         <Route path="/:shortenedURL">
-          <Redirect />
+          <Direct />
         </Route>
       </Switch>
     </AuthContext.Provider>
