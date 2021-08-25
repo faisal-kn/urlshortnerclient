@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
-import classes from "./Login.module.css";
+import classes from "./Signup.module.css";
 import { useHistory } from "react-router-dom";
+import Button from "../UI/Button";
 
 const Signup = (props) => {
   console.log(props);
@@ -77,9 +78,7 @@ const Signup = (props) => {
           id="confirm"
           onChange={passCheckChangeHandler}
         ></input>
-        <button type="submit" className={classes.btn} value={passwordConfirm}>
-          Submit
-        </button>
+        <Button type="submit" text="Submit"></Button>
       </form>
     </div>
   );

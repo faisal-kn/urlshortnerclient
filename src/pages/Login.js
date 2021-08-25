@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink, Route, useHistory } from "react-router-dom";
 import axios from "axios";
 
-import classes from "./Signup.module.css";
+import classes from "./Login.module.css";
+import Button from "../UI/Button";
 
 const Login = (props) => {
   const [email, setEmail] = React.useState("");
@@ -54,9 +55,7 @@ const Login = (props) => {
           onChange={passwordChangeHandler}
           value={password}
         />
-        <button type="submit" className={classes.btn}>
-          Submit
-        </button>
+        <Button type="submit" text="Submit"></Button>
         <p>Do not have a account ? Create a account here</p>
         <NavLink to="/signup" className={classes.link}>
           Signup

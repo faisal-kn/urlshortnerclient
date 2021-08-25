@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
-import classes from "./UrlForm.module.css";
 import { NavLink } from "react-router-dom";
+
+import classes from "./UrlForm.module.css";
+import Button from "../UI/Button";
 
 const UrlForm = () => {
   const [fullUrl, setFullUrl] = React.useState("");
@@ -54,15 +56,13 @@ const UrlForm = () => {
           onChange={shortUrlChangeHandler}
           value={shortUrl}
         />
-        <button type="submit" className={classes.btn}>
-          Submit
-        </button>
+        <Button type="submit" text="Submit"></Button>
       </form>
       {showLink && (
         <div>
           <p>Here is your short Url</p>
-          <NavLink to={`/${shortUrl}`} className={classes.small}>
-            {shortUrl}
+          <NavLink to={`${shortUrl}`} className={classes.small}>
+            {`http://localhost:3000/${shortUrl}`}
           </NavLink>
         </div>
       )}
