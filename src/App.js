@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -19,28 +19,33 @@ const App = () => {
         isLoggedIn: logState,
       }}
     >
-      <Route path="/" exact>
-        <Redirect to="/home"></Redirect>
-      </Route>
-      <Route path="/home">
-        <Home logStateHandler={logHandler} />
-      </Route>
-      <Route path="/login">
-        <Login logStateHandler={logHandler} />
-      </Route>
-      <Route path="/signup">
-        <Signup logStateHandler={logHandler} />
-      </Route>
-      {logState && (
-        <Route path="/short">
-          <UrlForm />
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/home"></Redirect>
         </Route>
-      )}
-      {!logState && (
-        <Route path="/short">
+        <Route path="/home">
+          <Home logStateHandler={logHandler} />
+        </Route>
+        <Route path="/login">
           <Login logStateHandler={logHandler} />
         </Route>
-      )}
+        <Route path="/signup">
+          <Signup logStateHandler={logHandler} />
+        </Route>
+        {logState && (
+          <Route path="/short">
+            <UrlForm />
+          </Route>
+        )}
+        {!logState && (
+          <Route path="/short">
+            <Login logStateHandler={logHandler} />
+          </Route>
+        )}
+        <Route path="/:shortenedURL">
+          <Redirect />
+        </Route>
+      </Switch>
     </AuthContext.Provider>
   );
 };

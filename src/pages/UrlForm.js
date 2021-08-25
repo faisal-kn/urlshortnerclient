@@ -1,13 +1,11 @@
 import React from "react";
 import axios from "axios";
 import classes from "./UrlForm.module.css";
-import AuthContext from "../context/auth-context";
-import { NavLink, Redirect, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const UrlForm = () => {
   const [fullUrl, setFullUrl] = React.useState("");
   const [shortUrl, setShortUrl] = React.useState("");
-  const ctx = React.useContext(AuthContext);
   const [showLink, setShowLink] = React.useState(false);
 
   const fullurlChangeHandler = (e) => {
@@ -63,12 +61,9 @@ const UrlForm = () => {
       {showLink && (
         <div>
           <p>Here is your short Url</p>
-          <NavLink to={`https://bitly.com/`} className={classes.small}>
+          <NavLink to={`/${shortUrl}`} className={classes.small}>
             {shortUrl}
           </NavLink>
-          <Route path={`https://bitly.com/`}>
-            <Redirect to={fullUrl}></Redirect>
-          </Route>
         </div>
       )}
     </div>
