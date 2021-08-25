@@ -31,9 +31,16 @@ const App = () => {
       <Route path="/signup">
         <Signup logStateHandler={logHandler} />
       </Route>
-      <Route path="/short">
-        <UrlForm />
-      </Route>
+      {logState && (
+        <Route path="/short">
+          <UrlForm />
+        </Route>
+      )}
+      {!logState && (
+        <Route path="/short">
+          <Login logStateHandler={logHandler} />
+        </Route>
+      )}
     </AuthContext.Provider>
   );
 };

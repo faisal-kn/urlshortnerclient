@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Route, Redirect } from "react-router-dom";
+import { NavLink, Route, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import classes from "./Signup.module.css";
@@ -7,7 +7,7 @@ import classes from "./Signup.module.css";
 const Login = (props) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [redirect, setRedirect] = React.useState(false);
+  const history = useHistory();
 
   const emailChangeHandler = (e) => {
     setEmail(e.target.value);
@@ -31,7 +31,7 @@ const Login = (props) => {
     console.log(res.data);
     if (res.data.status === "success") {
       props.logStateHandler(true);
-      setRedirect(true);
+      history.replace("/");
     }
   };
 
@@ -62,11 +62,6 @@ const Login = (props) => {
           Signup
         </NavLink>
       </form>
-      {redirect && (
-        <Route path="/login" exact>
-          <Redirect to="/short"></Redirect>
-        </Route>
-      )}
     </div>
   );
 };

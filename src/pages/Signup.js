@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import classes from "./Login.module.css";
-import { Route, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Signup = (props) => {
   console.log(props);
@@ -9,7 +9,7 @@ const Signup = (props) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [passwordConfirm, setConfirmPassword] = React.useState("");
-  const [redirect, setRedirect] = React.useState(false);
+  const history = useHistory();
 
   const nameChangeHandler = (e) => {
     setName(e.target.value);
@@ -40,7 +40,7 @@ const Signup = (props) => {
     const res = await axios(options);
     if (res.data.status === "success") {
       props.logStateHandler(true);
-      setRedirect(true);
+      history.replace("/");
     }
   };
 
@@ -81,11 +81,6 @@ const Signup = (props) => {
           Submit
         </button>
       </form>
-      {redirect && (
-        <Route path="/signup" exact>
-          <Redirect to="/short"></Redirect>
-        </Route>
-      )}
     </div>
   );
 };
