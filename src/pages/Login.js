@@ -30,7 +30,6 @@ const Login = (props) => {
     const res = await axios(options);
     console.log(res.data);
     if (res.data.status === "success") {
-      props.tokenHandler(res.data.token);
       props.logStateHandler(true);
       setRedirect(true);
     }

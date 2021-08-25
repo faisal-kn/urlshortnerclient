@@ -2,11 +2,22 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Home.module.css";
 import AuthContext from "../context/auth-context";
+import axios from "axios";
 
 const Home = (props) => {
   const ctx = React.useContext(AuthContext);
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
+    const options = {
+      url: "http://127.0.0.1:3001/api/v2/users/logout",
+      method: "GET",
+      withCredentials: true,
+    };
+    const res = await axios(options);
+    console.log(res.data);
+    if (res.data.status === "success") {
+      props.logStateHandler(false);
+    }
   };
 
   return (
