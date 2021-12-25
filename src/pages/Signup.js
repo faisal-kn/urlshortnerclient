@@ -28,7 +28,7 @@ const Signup = (props) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const options = {
-      url: "http://127.0.0.1:3001/api/v2/users/signup",
+      url: "https://urlshortdev.herokuapp.com/api/v2/users/signup",
       method: "POST",
       withCredentials: true,
       data: {
@@ -39,8 +39,9 @@ const Signup = (props) => {
       },
     };
     const res = await axios(options);
+    console.log(res);
     if (res.data.status === "success") {
-      props.logStateHandler(true);
+      props.logStateHandler(true, res.data.data.newUser._id);
       history.replace("/");
     }
   };

@@ -20,7 +20,7 @@ const Login = (props) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const options = {
-      url: "http://127.0.0.1:3001/api/v2/users/login",
+      url: "https://urlshortdev.herokuapp.com/api/v2/users/login",
       method: "POST",
       withCredentials: true,
       data: {
@@ -29,9 +29,9 @@ const Login = (props) => {
       },
     };
     const res = await axios(options);
-    console.log(res.data);
+
     if (res.data.status === "success") {
-      props.logStateHandler(true);
+      props.logStateHandler(true, res.data.data.user._id);
       history.replace("/");
     }
   };

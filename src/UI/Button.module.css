@@ -1,5 +1,5 @@
 .btn {
-  margin: 0px 50px;
+  margin: 15px 50px;
   text-decoration: none;
   border: 3px solid yellow;
   color: transparent;
@@ -9,6 +9,7 @@
   letter-spacing: 5px;
   transition: all 0.5s;
   position: relative;
+  cursor: pointer;
 }
 .btn:before {
   content: "Submit";

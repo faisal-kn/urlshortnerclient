@@ -5,7 +5,7 @@
   margin-top: 5rem;
   max-width: 500px;
   border: 5px ridge rgb(99, 99, 158);
-  transition: all 0.3s ease-in;
+  /* transition: all 0.3s ease-in; */
 }
 
 .form {
@@ -26,12 +26,12 @@
   border-color: rgb(230, 230, 70);
   text-align: center;
   font-weight: bold;
-  transition: all 0.3s ease-in;
+  /* transition: all 0.3s ease-in; */
   color: rgb(219, 123, 33);
 }
 
-.form input:hover {
+/* .form input:hover {
   background-color: rgb(122, 128, 214);
   margin-top: 1rem;
-}
+} */
 

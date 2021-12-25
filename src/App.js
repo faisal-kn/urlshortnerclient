@@ -9,15 +9,18 @@ import Direct from './direct';
 
 const App = () => {
   const [logState, setLogState] = React.useState(false);
+  const [id,setId]=React.useState("");
 
-  const logHandler = (state) => {
+  const logHandler = (state,id) => {
     setLogState(state);
+    setId(id);
   };
 
   return (
     <AuthContext.Provider
       value={{
         isLoggedIn: logState,
+        id,
       }}
     >
       <Switch>

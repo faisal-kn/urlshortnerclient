@@ -1,15 +1,17 @@
-import React from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 
+import AuthContext from "../context/auth-context";
 import classes from "./UrlForm.module.css";
 import Button from "../UI/Button";
 
 const UrlForm = () => {
-  const [fullUrl, setFullUrl] = React.useState("");
-  const [shortUrl, setShortUrl] = React.useState("");
-  const [showLink, setShowLink] = React.useState(false);
+  const [fullUrl, setFullUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState("");
+  const [showLink, setShowLink] = useState(false);
 
+  const ctx = useContext(AuthContext);
   const fullurlChangeHandler = (e) => {
     setFullUrl(e.target.value);
   };
@@ -21,11 +23,12 @@ const UrlForm = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const options = {
-      url: "http://127.0.0.1:3001/api/v2/shorturl",
+      url: "https://urlshortdev.herokuapp.com/api/v2/shorturl",
       method: "POST",
       withCredentials: true,
       data: {
         fullUrl,
+        author: ctx.id,
       },
     };
     if (shortUrl.trim().length !== 0) options.data.shortUrl = shortUrl;
@@ -41,7 +44,9 @@ const UrlForm = () => {
   return (
     <div className={classes.container}>
       <form className={classes.form} onSubmit={submitHandler}>
-        <label htmlFor="full">Full Url</label>
+        <label htmlFor="full" className={classes.full}>
+          Full Url
+        </label>
         <input
           type="text"
           id="full"
@@ -57,15 +62,15 @@ const UrlForm = () => {
           value={shortUrl}
         />
         <Button type="submit" text="Submit"></Button>
+        {showLink && (
+          <div>
+            <p>Here is your short Url</p>
+            <NavLink to={`${shortUrl}`} className={classes.small}>
+              {`http://localhost:3000/${shortUrl}`}
+            </NavLink>
+          </div>
+        )}
       </form>
-      {showLink && (
-        <div>
-          <p>Here is your short Url</p>
-          <NavLink to={`${shortUrl}`} className={classes.small}>
-            {`http://localhost:3000/${shortUrl}`}
-          </NavLink>
-        </div>
-      )}
     </div>
   );
 };

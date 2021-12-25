@@ -1,6 +1,7 @@
 .container {
   margin: auto;
   height: 70vh;
+  max-width: 70%;
   border: 5px ridge rgb(99, 99, 158);
   transition: all 0.3s ease-in;
 }
@@ -8,7 +9,13 @@
 .form {
   display: flex;
   flex-direction: column;
+  padding-left: 0.75rem;
   justify-content: flex-start;
+}
+
+.full {
+  padding-top: 0.5rem;
+  padding-bottom:0.5rem;
 }
 
 .form input {
@@ -25,13 +32,7 @@
 }
 
 .form label {
-  padding: 1rem;
   padding-bottom: 0;
-}
-
-form input:hover {
-  background-color: rgb(122, 128, 214);
-  margin-top: 1rem;
 }
 
 .link {
@@ -42,4 +43,3 @@ form input:hover {
 .link:hover {
   text-decoration: underline;
 }
-

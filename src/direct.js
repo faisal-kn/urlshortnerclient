@@ -7,7 +7,7 @@ const Direct = () => {
 
   const getURL = async () => {
     const options = {
-      url: `http://127.0.0.1:3001/api/v2/shorturl/${shortenedURL}`,
+      url: `https://urlshortdev.herokuapp.com/api/v2/shorturl/${shortenedURL}`,
       method: "GET",
       withCredentials: true,
     };
@@ -20,7 +20,7 @@ const Direct = () => {
     getURL();
     getURL().then((res) => (window.location.href = res));
   }, [shortenedURL]);
-  return <div>Redirecting</div>;
+  return <div>Please wait we are redirecting</div>;
 };
 
 export default Direct;

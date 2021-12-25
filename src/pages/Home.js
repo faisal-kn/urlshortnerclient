@@ -9,7 +9,7 @@ const Home = (props) => {
 
   const logoutHandler = async () => {
     const options = {
-      url: "http://127.0.0.1:3001/api/v2/users/logout",
+      url: "https://urlshortdev.herokuapp.com/api/v2/users/logout",
       method: "GET",
       withCredentials: true,
     };

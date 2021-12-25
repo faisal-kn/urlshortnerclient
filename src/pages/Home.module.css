@@ -61,6 +61,7 @@ p {
   letter-spacing: 5px;
   transition: all 0.5s;
   position: relative;
+  cursor: pointer;
 }
 .btn:before {
   content: "Logout";

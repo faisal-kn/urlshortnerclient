@@ -24,15 +24,11 @@
   margin-left: 12%;
   margin-top: 0;
   text-align: center;
-  transition: all 0.3s ease-in;
+  /* transition: all 0.3s ease-in; */
   font-weight: bold;
   color: rgb(214, 82, 20);
 }
 
-/* form input:hover {
-  background-color: rgb(122, 128, 214);
-  margin-top: 1rem;
-} */
 
 .link {
   text-decoration: none;
