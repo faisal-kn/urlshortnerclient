@@ -3,8 +3,24 @@ body {
   background-image: linear-gradient(to right, #1c87c9, #8ebf42);
   font-family: "IBM Plex Sans KR", sans-serif;
   font-weight: bold;
-  color:rgb(36, 100, 36);
+  color: rgb(36, 100, 36);
   font-size: large;
 }
 
+*::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
 
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  background: rgb(90, 145, 85);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+  background: rgb(46, 138, 23);
+  border-radius: 10px;
+}

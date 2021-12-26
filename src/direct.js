@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Direct = () => {
@@ -12,15 +12,24 @@ const Direct = () => {
       withCredentials: true,
     };
     const res = await axios(options);
-    console.log(res.data);
+    console.log(res);
     return res.data.data.url.fullUrl;
   };
 
   React.useEffect(() => {
-    getURL();
-    getURL().then((res) => (window.location.href = res));
+    getURL().then((res) =>
+      window.open(
+        res,
+        "_blank"
+      )
+    );
   }, [shortenedURL]);
-  return <div>Please wait we are redirecting</div>;
+
+  return (
+    <>
+      <Redirect to="/home"></Redirect>
+    </>
+  );
 };
 
 export default Direct;

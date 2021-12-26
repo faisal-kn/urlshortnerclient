@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./Home.module.css";
 import AuthContext from "../context/auth-context";
 import axios from "axios";
+import Table from "./Table";
 
 const Home = (props) => {
   const ctx = React.useContext(AuthContext);
@@ -14,7 +15,6 @@ const Home = (props) => {
       withCredentials: true,
     };
     const res = await axios(options);
-    console.log(res.data);
     if (res.data.status === "success") {
       props.logStateHandler(false);
     }
@@ -44,9 +44,13 @@ const Home = (props) => {
             Create a short Url
           </NavLink>
         )}
-        <p className={classes.middle}>
-          Please login to the website to create your link
-        </p>
+        {!ctx.isLoggedIn ? (
+          <p className={classes.middle}>
+            Please login to the website to create your link
+          </p>
+        ) : (
+          <Table />
+        )}
       </div>
     </div>
   );

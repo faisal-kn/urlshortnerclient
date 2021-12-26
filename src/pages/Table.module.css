@@ -1,0 +1,25 @@
+caption {
+  font-size: 2em;
+  padding: 10px;
+  background-color: #3f9257;
+  color: rgb(102, 30, 30);
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  overflow-wrap: break-word;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
