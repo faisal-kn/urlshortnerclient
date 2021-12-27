@@ -16,12 +16,14 @@ const Direct = () => {
       console.log(res);
       return res.data.data.url.fullUrl;
     };
-    getURL().then((res) => window.open(res, "_blank"));
+    // getURL().then((res) => window.open(res, "_blank"));
+    getURL().then((res) => (window.location.href = res));
   }, [shortenedURL]);
 
   return (
     <>
-      <Redirect to="/home"></Redirect>
+      {/* <Redirect to="/home"></Redirect> */}
+      <div>we are redirecting</div>
     </>
   );
 };
