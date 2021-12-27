@@ -4,7 +4,6 @@ import classes from "./Home.module.css";
 import AuthContext from "../context/auth-context";
 import axios from "axios";
 import Table from "./Table";
-import Spinner from "../components/Spinner";
 
 const Home = (props) => {
   const ctx = React.useContext(AuthContext);

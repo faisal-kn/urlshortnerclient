@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import styles from "./Table.module.css";
+import "./Table.module.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { usePromiseTracker } from "react-promise-tracker";

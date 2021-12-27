@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Route, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import classes from "./Login.module.css";
