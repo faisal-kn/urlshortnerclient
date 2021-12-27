@@ -46,7 +46,7 @@ const Table = () => {
                     <td>
                       {" "}
                       <NavLink to={`${item.shortUrl}`}>
-                        {`http://localhost:3000/${item.shortUrl}`}
+                        {`https://short-urls.netlify.app/${item.shortUrl}`}
                       </NavLink>
                     </td>
                     <td>{item.clicks}</td>

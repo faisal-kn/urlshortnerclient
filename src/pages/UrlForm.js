@@ -74,7 +74,7 @@ const UrlForm = () => {
           <div>
             <p>Here is your short Url</p>
             <NavLink to={`${shortUrl}`} className={classes.small}>
-              {`http://localhost:3000/${shortUrl}`}
+              {`https://short-urls.netlify.app/${shortUrl}`}
             </NavLink>
           </div>
         )}
