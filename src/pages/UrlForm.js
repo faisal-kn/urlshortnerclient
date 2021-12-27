@@ -5,11 +5,15 @@ import { NavLink } from "react-router-dom";
 import AuthContext from "../context/auth-context";
 import classes from "./UrlForm.module.css";
 import Button from "../UI/Button";
+import { usePromiseTracker } from "react-promise-tracker";
+import { trackPromise } from "react-promise-tracker";
+import Spinner from "../components/Spinner";
 
 const UrlForm = () => {
   const [fullUrl, setFullUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [showLink, setShowLink] = useState(false);
+  const { promiseInProgress } = usePromiseTracker();
 
   const ctx = useContext(AuthContext);
   const fullurlChangeHandler = (e) => {
@@ -20,8 +24,7 @@ const UrlForm = () => {
     setShortUrl(e.target.value);
   };
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  const submitHandler = async () => {
     const options = {
       url: "https://urlshortdev.herokuapp.com/api/v2/shorturl",
       method: "POST",
@@ -32,8 +35,12 @@ const UrlForm = () => {
       },
     };
     if (shortUrl.trim().length !== 0) options.data.shortUrl = shortUrl;
-    const res = await axios(options);
-    console.log(res.data);
+    return await axios(options);
+  };
+
+  const promiseHandler = async (e) => {
+    e.preventDefault();
+    const res = await trackPromise(submitHandler());
     if (res.data.status === "success") {
       setFullUrl(res.data.data.url.fullUrl);
       setShortUrl(res.data.data.url.shortUrl);
@@ -43,7 +50,7 @@ const UrlForm = () => {
 
   return (
     <div className={classes.container}>
-      <form className={classes.form} onSubmit={submitHandler}>
+      <form className={classes.form} onSubmit={promiseHandler}>
         <label htmlFor="full" className={classes.full}>
           Full Url
         </label>
@@ -62,6 +69,7 @@ const UrlForm = () => {
           value={shortUrl}
         />
         <Button type="submit" text="Submit"></Button>
+        {promiseInProgress === true && <Spinner />}
         {showLink && (
           <div>
             <p>Here is your short Url</p>
