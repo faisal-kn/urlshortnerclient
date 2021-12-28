@@ -1,23 +1,14 @@
-caption {
-  font-size: 2em;
-  padding: 10px;
-  background-color: #3f9257;
-  color: rgb(102, 30, 30);
-}
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  border: 1px solid #ddd;
+  width: 100%;
+  width: 66%;
+  margin: auto;
 }
 
 th,
 td {
-  text-align: center;
+  text-align: left;
   padding: 8px;
-  overflow-wrap: break-word;
 }
 
 tr:nth-child(even) {
