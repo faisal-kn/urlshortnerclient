@@ -1,11 +1,13 @@
-import React from "react";
+import { useEffect, useContext } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "./context/auth-context";
 
 const Direct = () => {
   const { shortenedURL } = useParams();
+  const ctx = useContext(AuthContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const getURL = async () => {
       const options = {
         url: `https://urlshortdev.herokuapp.com/api/v2/shorturl/${shortenedURL}`,
@@ -16,14 +18,14 @@ const Direct = () => {
       console.log(res);
       return res.data.data.url.fullUrl;
     };
-    // getURL().then((res) => window.open(res, "_blank"));
-    getURL().then((res) => (window.location.href = res));
-  }, [shortenedURL]);
+    if (ctx.isLoggedIn) getURL().then((res) => window.open(res, "_blank"));
+    if (!ctx.isLoggedIn) getURL().then((res) => (window.location.href = res));
+  }, [ctx, shortenedURL]);
 
   return (
     <>
-      {/* <Redirect to="/home"></Redirect> */}
-      <div>we are redirecting</div>
+      {ctx.isLoggedIn && <Redirect to="/home"></Redirect>}
+      {!ctx.isLoggedIn && <div></div>}
     </>
   );
 };
